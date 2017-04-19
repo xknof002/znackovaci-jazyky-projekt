@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--https://github.com/xknof002/znackovaci-jazyky-projekt/-->
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="game-settings">
+    <xs:annotation>
+      <xs:documentation>https://github.com/xkolm036/znackovaci_jazyky</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="game">
+          <xs:annotation>
+            <xs:documentation>obecne nastaveni</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="lang" name="language"/>
+              <xs:element name="subtitles">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:boolean">
+                      <xs:attribute type="lang" name="language" use="required"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element type="xs:boolean" name="color-blind"/>
+            </xs:sequence>
+            <xs:attribute type="xs:string" name="version" fixed="1.12.5"/>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="gameplay">
+          <xs:annotation>
+            <xs:documentation>herni nastaveni</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="diff" name="difficulty"/>
+              <xs:element type="xs:boolean" name="display-tutorials"/>
+              <xs:element type="xs:boolean" name="aim-assist"/>
+              <xs:element type="fov" name="field-of-view"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="display">
+          <xs:annotation>
+            <xs:documentation>nastaveni obrazovky</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="dm" name="display-mode"/>
+              <xs:element name="resolution">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:integer" name="width" use="required"/>
+                      <xs:attribute type="xs:integer" name="height" use="required"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element type="xs:boolean" name="vsync"/>
+              <xs:element type="xs:boolean" name="high-dynamic-range"/>
+              <xs:element type="zerotohundred" name="gamma"/>
+              <xs:element type="zerotohundred" name="brightness"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="graphics" maxOccurs="unbounded" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>graficke nastaveni (low preset)graficke nastaveni (medium preset)graficke nastaveni (high preset)graficke nastaveni (ultra preset)graficke nastaveni (custom preset)</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="textures">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="quality" name="texture-quality"/>
+                    <xs:element type="filtering" name="anisotropic-filtering"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element type="aa" name="anti-aliasing"/>
+              <xs:element type="ao" name="ambient-occlusion"/>
+              <xs:element type="quality" name="post-process-quality"/>
+              <xs:element type="quality" name="lightning-quality"/>
+              <xs:element type="quality" name="shadows-quality"/>
+              <xs:element type="quality" name="effects-quality"/>
+              <xs:element type="quality" name="mesh-quality"/>
+              <xs:element type="quality-shader" name="shader-quality"/>
+              <xs:element type="quality" name="terrain-quality"/>
+              <xs:element type="quality" name="vegetation-quality"/>
+            </xs:sequence>
+            <xs:attribute type="xs:string" name="preset" use="required"/>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="audio">
+          <xs:annotation>
+            <xs:documentation>nastaveni zvuku</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="range" name="dynamic-range"/>
+              <xs:element type="speaker" name="speaker-configuration"/>
+              <xs:element name="volume">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="zerotohundred" name="music"/>
+                    <xs:element type="zerotohundred" name="sfx"/>
+                    <xs:element type="zerotohundred" name="dialog"/>
+                  </xs:sequence>
+                  <xs:attribute type="zerotohundred" name="master" use="required"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="controls">
+          <xs:annotation>
+            <xs:documentation>nastaveni ovladani</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="sensitivity" name="mouse-sensitivity"/>
+              <xs:element name="mouse-inverted">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute type="xs:boolean" name="x-axis" use="required"/>
+                      <xs:attribute type="xs:boolean" name="y-axis" use="required"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element type="xs:boolean" name="mouse-smoothing"/>
+              <xs:element type="toggle-hold" name="sprint-control"/>
+              <xs:element type="toggle-hold" name="aim-control"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:simpleType name="lang">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="english"/>
+      <xs:enumeration value="czech"/>
+      <xs:enumeration value="russian"/>
+      <xs:enumeration value="french"/>
+      <xs:enumeration value="german"/>
+      <xs:enumeration value="spanish"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="fov">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="60"/>
+      <xs:maxInclusive value="120"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="zerotohundred">
+    <xs:restriction base="xs:integer">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="100"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sensitivity">
+    <xs:restriction base="xs:float">
+      <xs:minInclusive value="0.1"/>
+      <xs:maxInclusive value="10"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="quality">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="low"/>
+      <xs:enumeration value="medium"/>
+      <xs:enumeration value="high"/>
+      <xs:enumeration value="ultra"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="quality-shader">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="low"/>
+      <xs:enumeration value="high"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="aa">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="off"/>
+      <xs:enumeration value="fxaa"/>
+      <xs:enumeration value="temporal aa"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="diff">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="easy"/>
+      <xs:enumeration value="medium"/>
+      <xs:enumeration value="hard"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="dm">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="fullscreen"/>
+      <xs:enumeration value="windowed"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="filtering">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="off"/>
+      <xs:enumeration value="2x"/>
+      <xs:enumeration value="4x"/>
+      <xs:enumeration value="8x"/>
+      <xs:enumeration value="16x"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+   <xs:simpleType name="ao">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="off"/>
+      <xs:enumeration value="ssao"/>
+      <xs:enumeration value="hbao"/>
+      <xs:enumeration value="hbao full"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="range">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="wide"/>
+      <xs:enumeration value="medium"/>
+      <xs:enumeration value="narrow"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="speaker">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="stereo"/>
+      <xs:enumeration value="surround"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="toggle-hold">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="toggle"/>
+      <xs:enumeration value="hold"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="schema.xsd"?>
+<!--https://github.com/xknof002/znackovaci-jazyky-projekt/-->
+<game-settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="XML_schema.xsd"> 
+  <!--obecne nastaveni-->
+  <game version="1.12.5">
+    <language>english</language>
+    <subtitles language="czech">true</subtitles>
+    <color-blind>false</color-blind>
+  </game>
+  <!--herni nastaveni-->
+  <gameplay>
+    <difficulty>medium</difficulty>
+    <display-tutorials>true</display-tutorials>
+    <aim-assist>false</aim-assist>
+    <field-of-view>90</field-of-view>
+  </gameplay>
+  <!--nastaveni obrazovky-->
+  <display>
+    <display-mode>fullscreen</display-mode>
+    <resolution width="1920" height="1080" />
+    <vsync>true</vsync>
+    <high-dynamic-range>false</high-dynamic-range>
+    <gamma>50</gamma>
+    <brightness>100</brightness>
+  </display>
+  <!--graficke nastaveni (low preset)-->
+  <graphics preset="low">
+    <textures>
+      <texture-quality>low</texture-quality>
+      <anisotropic-filtering>off</anisotropic-filtering>
+    </textures>
+    <anti-aliasing>off</anti-aliasing>
+    <ambient-occlusion>off</ambient-occlusion>
+    <post-process-quality>low</post-process-quality>
+    <lightning-quality>low</lightning-quality>
+    <shadows-quality>low</shadows-quality>
+    <effects-quality>low</effects-quality>
+    <mesh-quality>low</mesh-quality>
+    <shader-quality>low</shader-quality>
+    <terrain-quality>low</terrain-quality>
+    <vegetation-quality>low</vegetation-quality>
+  </graphics>
+  <!--graficke nastaveni (medium preset)-->
+  <graphics preset="medium">
+    <textures>
+      <texture-quality>medium</texture-quality>
+      <anisotropic-filtering>4x</anisotropic-filtering>
+    </textures>
+    <anti-aliasing>fxaa</anti-aliasing>
+    <ambient-occlusion>ssao</ambient-occlusion>
+    <post-process-quality>medium</post-process-quality>
+    <lightning-quality>medium</lightning-quality>
+    <shadows-quality>medium</shadows-quality>
+    <effects-quality>medium</effects-quality>
+    <mesh-quality>medium</mesh-quality>
+    <shader-quality>low</shader-quality>
+    <terrain-quality>medium</terrain-quality>
+    <vegetation-quality>medium</vegetation-quality>
+  </graphics>
+  <!--graficke nastaveni (high preset)-->
+  <graphics preset="high">
+    <textures>
+      <texture-quality>high</texture-quality>
+      <anisotropic-filtering>8x</anisotropic-filtering>
+    </textures>
+    <anti-aliasing>temporal aa</anti-aliasing>
+    <ambient-occlusion>hbao</ambient-occlusion>
+    <post-process-quality>high</post-process-quality>
+    <lightning-quality>high</lightning-quality>
+    <shadows-quality>high</shadows-quality>
+    <effects-quality>high</effects-quality>
+    <mesh-quality>high</mesh-quality>
+    <shader-quality>high</shader-quality>
+    <terrain-quality>high</terrain-quality>
+    <vegetation-quality>high</vegetation-quality>
+  </graphics>
+  <!--graficke nastaveni (ultra preset)-->
+  <graphics preset="ultra">
+    <textures>
+      <texture-quality>ultra</texture-quality>
+      <anisotropic-filtering>16x</anisotropic-filtering>
+    </textures>
+    <anti-aliasing>temporal aa</anti-aliasing>
+    <ambient-occlusion>hbao full</ambient-occlusion>
+    <post-process-quality>ultra</post-process-quality>
+    <lightning-quality>ultra</lightning-quality>
+    <shadows-quality>ultra</shadows-quality>
+    <effects-quality>ultra</effects-quality>
+    <mesh-quality>ultra</mesh-quality>
+    <shader-quality>high</shader-quality>
+    <terrain-quality>ultra</terrain-quality>
+    <vegetation-quality>ultra</vegetation-quality>
+  </graphics>
+  <!--graficke nastaveni (custom preset)-->
+  <graphics preset="custom">
+    <textures>
+      <texture-quality>ultra</texture-quality>
+      <anisotropic-filtering>16x</anisotropic-filtering>
+    </textures>
+    <anti-aliasing>temporal aa</anti-aliasing>
+    <ambient-occlusion>hbao</ambient-occlusion>
+    <post-process-quality>medium</post-process-quality>
+    <lightning-quality>high</lightning-quality>
+    <shadows-quality>medium</shadows-quality>
+    <effects-quality>high</effects-quality>
+    <mesh-quality>high</mesh-quality>
+    <shader-quality>high</shader-quality>
+    <terrain-quality>high</terrain-quality>
+    <vegetation-quality>high</vegetation-quality>
+  </graphics>
+  <!--nastaveni zvuku-->
+  <audio>
+    <dynamic-range>medium</dynamic-range>
+    <speaker-configuration>stereo</speaker-configuration>
+    <volume master="50">
+      <music>30</music>
+      <sfx>45</sfx>
+      <dialog>45</dialog>
+    </volume>
+  </audio>
+  <!--nastaveni ovladani-->
+  <controls>
+    <mouse-sensitivity>4.5</mouse-sensitivity>
+    <mouse-inverted x-axis="false" y-axis="false" />
+    <mouse-smoothing>false</mouse-smoothing>
+    <sprint-control>hold</sprint-control>
+    <aim-control>toggle</aim-control>
+  </controls>
+</game-settings>
